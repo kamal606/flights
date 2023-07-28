@@ -1,42 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class AppFonts {
-  static double _scaledFontSize(double fontSize, BuildContext context) {
-    final double scaleFactor = MediaQuery.of(context).size.shortestSide / 360.0;
-    return fontSize * scaleFactor;
-  }
-
-  static TextStyle font32(BuildContext context) => TextStyle(
-        fontSize: _scaledFontSize(32, context),
+  static TextStyle font32() => TextStyle(
+        fontSize: 32.sp,
       );
-  static TextStyle font30(BuildContext context) => TextStyle(
-        fontSize: _scaledFontSize(30, context),
+  static TextStyle font30() => TextStyle(
+        fontSize: 30.sp,
       );
-  static TextStyle font28(BuildContext context) => TextStyle(
-        fontSize: _scaledFontSize(28, context),
+  static TextStyle font28() => TextStyle(
+        fontSize: 28.sp,
       );
-  static TextStyle font26(BuildContext context) => TextStyle(
-        fontSize: _scaledFontSize(26, context),
+  static TextStyle font26() => TextStyle(
+        fontSize: 26.sp,
       );
-  static TextStyle font24(BuildContext context) => TextStyle(
-        fontSize: _scaledFontSize(24, context),
+  static TextStyle font24() => TextStyle(
+        fontSize: 24.sp,
       );
-  static TextStyle font22(BuildContext context) => TextStyle(
-        fontSize: _scaledFontSize(22, context),
+  static TextStyle font22() => TextStyle(
+        fontSize: 22.sp,
       );
-  static TextStyle font20(BuildContext context) => TextStyle(
-        fontSize: _scaledFontSize(20, context),
+  static TextStyle font20() => TextStyle(
+        fontSize: 20.sp,
       );
-  static TextStyle font18(BuildContext context) => TextStyle(
-        fontSize: _scaledFontSize(18, context),
+  static TextStyle font18() => TextStyle(
+        fontSize: 18.sp,
       );
-  static TextStyle font16(BuildContext context) => TextStyle(
-        fontSize: _scaledFontSize(16, context),
+  static TextStyle font16() => TextStyle(
+        fontSize: 16.sp,
       );
-  static TextStyle font14(BuildContext context) => TextStyle(
-        fontSize: _scaledFontSize(14, context),
+  static TextStyle font14() => TextStyle(
+        fontSize: 14.sp,
       );
-  static TextStyle font12(BuildContext context) => TextStyle(
-        fontSize: _scaledFontSize(12, context),
+  static TextStyle font12() => TextStyle(
+        fontSize: 12.sp,
       );
 }

@@ -1,7 +1,7 @@
 import 'package:flights/core/color/app_color.dart';
-import 'package:flights/core/constant/assets.dart';
-import 'package:flights/core/functions/scaled_size.dart';
 import 'package:flights/core/utils/app_fonts.dart';
+import 'package:flights/features/splash/presentation/widgets/home/background.dart';
+import 'package:flights/features/splash/presentation/widgets/home/title_with_button.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -9,31 +9,61 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(Assets.imagesBackgroundHome),
-            fit: BoxFit.fill,
+    return const Stack(
+      children: [
+        BackgroundHome(),
+        TitleWithButton(),
+      ],
+    );
+  }
+}
+
+class MyBottomNavigationBar extends StatelessWidget {
+  const MyBottomNavigationBar({
+    Key? key,
+    required this.selectedIndex,
+    required this.onItemTapped,
+  }) : super(key: key);
+
+  final int selectedIndex;
+  final void Function(int) onItemTapped;
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: AppColor.background,
+      items: const [
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.home,
           ),
+          label: 'Home',
         ),
-      ),
-      ListTile(
-        title: Text(
-          "No bookings found",
-          textAlign: TextAlign.center,
-          style: AppFonts.font20(context).copyWith(
-              color: AppColor.darkGrey,
-              height: ScaledSize.scaledSize(3, context)),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person),
+          label: 'Profile',
         ),
-        subtitle: Text(
-          "Please log in to view your bookings.",
-          textAlign: TextAlign.center,
-          style: AppFonts.font14(context).copyWith(
-              color: AppColor.darkHalfGrey,
-              height: ScaledSize.scaledSize(1.5, context)),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.search,
+          ),
+          backgroundColor: AppColor.background,
+          label: 'Search',
         ),
-      )
-    ]);
+        BottomNavigationBarItem(
+          icon: Icon(Icons.settings),
+          label: 'Settings',
+        ),
+      ],
+      currentIndex: selectedIndex,
+      selectedItemColor: AppColor.lightBlue,
+      unselectedItemColor: AppColor.darkGrey,
+      unselectedLabelStyle:
+          AppFonts.font12().copyWith(color: AppColor.darkGrey),
+      selectedLabelStyle: AppFonts.font12(),
+      showUnselectedLabels: true,
+      onTap: onItemTapped,
+    );
   }
 }

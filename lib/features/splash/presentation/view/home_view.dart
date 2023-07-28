@@ -5,7 +5,7 @@ import 'package:flights/core/widgets/custom_appbar.dart';
 import 'package:flights/features/splash/presentation/widgets/home/home_body.dart';
 import 'package:flutter/material.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
   static Route route() {
     return MaterialRoute.materialPageRoute(
@@ -13,13 +13,27 @@ class HomeView extends StatelessWidget {
   }
 
   @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+int index = 0;
+
+class _HomeViewState extends State<HomeView> {
+  @override
   Widget build(BuildContext context) {
     return Container(
       color: AppColor.darkBlue,
-      child: const SafeArea(
+      child: SafeArea(
         child: Scaffold(
-          appBar: CustomAppBar(),
-          body: HomeViewBody(),
+          bottomNavigationBar: MyBottomNavigationBar(
+            onItemTapped: (i) {
+              index = i;
+              setState(() {});
+            },
+            selectedIndex: index,
+          ),
+          appBar: const CustomAppBar(),
+          body: const HomeViewBody(),
         ),
       ),
     );
