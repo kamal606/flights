@@ -1,5 +1,8 @@
 import 'package:flights/core/utils/route_name.dart';
-import 'package:flights/features/splash/presentation/view/home_view.dart';
+import 'package:flights/features/book_flights/presentation/view/profile_view.dart';
+
+import 'package:flights/features/book_flights/presentation/view/home_view.dart';
+
 import 'package:flights/features/splash/presentation/view/spalsh_view.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +15,9 @@ abstract class AppRouter {
         return SplashView.route();
       case RouteName.homeView:
         return HomeView.route();
+
+      case RouteName.profileView:
+        return ProfileView.route();
       default:
         return _errorRoute();
     }
