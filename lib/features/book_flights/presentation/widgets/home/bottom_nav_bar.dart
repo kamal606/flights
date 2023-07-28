@@ -32,6 +32,9 @@ class MyBottomNavigationBar extends StatelessWidget {
             label: "Hotel",
           ),
           BottomNavBarItem.bottomNavigationBarItem(
+            label: "",
+          ),
+          BottomNavBarItem.bottomNavigationBarItem(
             icon: AppIcons.akeedCare,
             label: "AkeedCare",
           ),

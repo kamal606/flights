@@ -6,4 +6,5 @@ abstract class AppIcons {
   static IconData hotel = FontAwesomeIcons.hotel;
   static IconData akeedCare = FontAwesomeIcons.commentDots;
   static IconData more = FontAwesomeIcons.ellipsis;
+  static IconData plane = FontAwesomeIcons.planeUp;
 }

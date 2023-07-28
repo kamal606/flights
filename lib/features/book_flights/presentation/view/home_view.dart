@@ -1,6 +1,7 @@
 import 'package:flights/core/color/app_color.dart';
 import 'package:flights/core/functions/material_route.dart';
 import 'package:flights/core/functions/model_bottom_sheet.dart';
+import 'package:flights/core/utils/app_icons.dart';
 import 'package:flights/core/utils/route_name.dart';
 import 'package:flights/core/widgets/custom_appbar.dart';
 import 'package:flights/features/book_flights/presentation/bloc/bloc/bottom_nav_bar_bloc.dart';
@@ -11,6 +12,7 @@ import 'package:flights/features/book_flights/presentation/widgets/home/bottom_n
 import 'package:flights/features/book_flights/presentation/widgets/home/home_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -30,18 +32,32 @@ class HomeView extends StatelessWidget {
               const HomeViewBody(),
               const HomeViewBody(),
               const HomeViewBody(),
+              const HomeViewBody(),
               const ProfileView(),
             ];
             final selectedIndex =
                 state is BottomNavUpdated ? state.selectedIndex : 0;
             return Scaffold(
+              floatingActionButtonLocation:
+                  FloatingActionButtonLocation.centerDocked,
+              floatingActionButton: Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  padding: EdgeInsets.only(bottom: 30.h),
+                  child: FloatingActionButton(
+                    backgroundColor: AppColor.lightBlue,
+                    onPressed: () {},
+                    child: Icon(AppIcons.plane),
+                  ),
+                ),
+              ),
               bottomNavigationBar: MyBottomNavigationBar(
                 selectedIndex: selectedIndex,
                 onItemTapped: (index) {
                   if (index == 1) {
                     OpenBottomSheet.openModal(context);
                   }
-                  if (index == 2) {
+                  if (index == 3) {
                     OpenBottomSheet.openModal(context);
                   }
                   BlocProvider.of<BottomNavBarBloc>(context)
