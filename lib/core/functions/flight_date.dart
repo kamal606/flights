@@ -18,12 +18,16 @@ abstract class FlightDate {
       BlocProvider.of<FlightDateBloc>(context)
           .add(FlightDateStart(dateTimeStart: pickedStartDate));
 
+      // final DateFormat formatter = DateFormat('dd EEE MMM');
+      // formatter.format(pickedStartDate);
       // ignore: use_build_context_synchronously
       selectReturnDate(context, pickedStartDate);
+      // prints something like "23 Tue Aug"
     }
   }
 
-  //-------------------------- return date ---------------------------
+//-------------------------- return date ---------------------------
+
   static Future<void> selectReturnDate(
       BuildContext context, DateTime? startDate) async {
     final state = context.read<FlightDateBloc>().state;
@@ -46,6 +50,9 @@ abstract class FlightDate {
       // ignore: use_build_context_synchronously
       BlocProvider.of<FlightDateBloc>(context)
           .add(FlightDateReturn(dateTimeReturn: pickedReturnDate));
+
+      // final DateFormat formatter = DateFormat('dd EEE MMM');
+      // formatter.format(pickedReturnDate);
     }
   }
 }

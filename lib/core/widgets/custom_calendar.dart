@@ -10,63 +10,75 @@ class CustomBoxCalendar extends StatelessWidget {
       required this.title,
       required this.dayNumber,
       required this.month,
-      required this.dayText});
+      required this.dayText,
+      this.onTap});
   final String title;
   final String dayNumber;
   final String dayText;
   final String month;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          color: AppColor.white, borderRadius: BorderRadius.circular(6.h)),
-      padding: EdgeInsets.all(10.h),
-      height: 75.h,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: AppFonts.font10().copyWith(
-              color: AppColor.lightBlue,
-              fontWeight: FontWeight.bold,
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+            color: AppColor.white, borderRadius: BorderRadius.circular(6.h)),
+        padding: EdgeInsets.all(10.h),
+        height: 75.h,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: AppFonts.font10().copyWith(
+                color: AppColor.lightBlue,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-          Row(
-            children: [
-              Text(
-                dayNumber,
-                style: AppFonts.font32().copyWith(color: AppColor.darkBlue),
-              ),
-              SizedBox(
-                width: 10.h,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    month,
-                    style: AppFonts.font12().copyWith(color: AppColor.darkBlue),
-                  ),
-                  SizedBox(
-                    height: 5.h,
-                  ),
-                  Text(
-                    dayText,
-                    style: AppFonts.font12().copyWith(color: AppColor.darkBlue),
-                  ),
-                ],
-              ),
-              const Spacer(),
-              Icon(
-                AppIcons.calendar,
-                size: 22.h,
-                color: AppColor.lightPink,
-              ),
-            ],
-          )
-        ],
+            Row(
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      dayNumber,
+                      style:
+                          AppFonts.font32().copyWith(color: AppColor.darkBlue),
+                    ),
+                    SizedBox(
+                      width: 10.h,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          month,
+                          style: AppFonts.font12()
+                              .copyWith(color: AppColor.darkBlue),
+                        ),
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        Text(
+                          dayText,
+                          style: AppFonts.font12()
+                              .copyWith(color: AppColor.darkBlue),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                const Spacer(),
+                Icon(
+                  AppIcons.calendar,
+                  size: 22.h,
+                  color: AppColor.lightPink,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
