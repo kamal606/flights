@@ -1,5 +1,6 @@
 import 'package:flights/core/functions/theme_data.dart';
 import 'package:flights/core/utils/app_router.dart';
+import 'package:flights/features/book_flights/presentation/bloc/flight_date_bloc/flight_date_bloc.dart';
 
 import 'package:flights/features/book_flights/presentation/bloc/nav_bar_bloc/bottom_nav_bar_bloc.dart';
 import 'package:flights/features/splash/presentation/view/spalsh_view.dart';
@@ -26,9 +27,9 @@ class FlightsApp extends StatelessWidget {
             BlocProvider(
               create: (context) => BottomNavBarBloc(),
             ),
-            // BlocProvider(
-            //   create: (context) => FlightDateBloc(),
-            // ),
+            BlocProvider(
+              create: (context) => FlightDateBloc(),
+            ),
           ],
           child: MaterialApp(
             theme: AppTheme.themeData(),

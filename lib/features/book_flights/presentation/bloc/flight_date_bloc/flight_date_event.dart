@@ -1,19 +1,26 @@
-// import 'package:equatable/equatable.dart';
-// import 'package:flutter/material.dart';
+part of 'flight_date_bloc.dart';
 
-// @immutable
-// abstract class FlightDateEvent extends Equatable {}
+abstract class FlightDateEvent extends Equatable {
+  const FlightDateEvent();
 
-// class FlightDateStartEvent extends FlightDateEvent {
-//   final BuildContext context;
-//   FlightDateStartEvent(this.context);
-//   @override
-//   List<Object?> get props => [context];
-// }
+  @override
+  List<Object?> get props => [];
+}
 
-// class FlightDateReturnEvent extends FlightDateEvent {
-//   final BuildContext context;
-//   FlightDateReturnEvent(this.context);
-//   @override
-//   List<Object?> get props => [context];
-// }
+class FlightDateStart extends FlightDateEvent {
+  final DateTime? dateTimeStart;
+
+  const FlightDateStart({required this.dateTimeStart});
+
+  @override
+  List<Object?> get props => [dateTimeStart];
+}
+
+class FlightDateReturn extends FlightDateEvent {
+  final DateTime? dateTimeReturn;
+
+  const FlightDateReturn({required this.dateTimeReturn});
+
+  @override
+  List<Object?> get props => [dateTimeReturn];
+}
