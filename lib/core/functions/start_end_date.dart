@@ -3,39 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 abstract class FlightDate {
-  // static Future<void> selectStartDate(BuildContext context) async {
-  //   final state = context.read<FlightDateBloc>().state;
-  //   final DateTime? pickedStartDate = await showDatePicker(
-  //     context: context,
-  //     initialDate:
-  //         state is FlightDateStartState ? state.dateTimeStart! : DateTime.now(),
-  //     firstDate:
-  //         state is FlightDateStartState ? state.dateTimeStart! : DateTime.now(),
-  //     lastDate: DateTime.now().add(const Duration(days: 365)),
-  //   );
-
-  //   if (pickedStartDate != null) {
-  //     BlocProvider.of<FlightDateBloc>(context)
-  //         .add(FlightDateStart(dateTimeStart: pickedStartDate));
-  //   }
-  // }
-
-  // static Future<void> selectReturnDate(BuildContext context) async {
-  //   final state = context.read<FlightDateBloc>().state;
-  //   final DateTime? pickedStartDate = state.dateTimeStart;
-
-  //   final DateTime? pickedReturnDate = await showDatePicker(
-  //     context: context,
-  //     initialDate: pickedStartDate ?? DateTime.now(),
-  //     firstDate: pickedStartDate ?? DateTime.now(),
-  //     lastDate: DateTime.now().add(const Duration(days: 365)),
-  //   );
-
-  //   if (pickedReturnDate != null) {
-  //     BlocProvider.of<FlightDateBloc>(context)
-  //         .add(FlightDateReturn(dateTimeReturn: pickedReturnDate));
-  //   }
-  // }
+  //-------------------------- start date ---------------------------
   static Future<void> selectStartDate(BuildContext context) async {
     final state = context.read<FlightDateBloc>().state;
     final DateTime? pickedStartDate = await showDatePicker(
@@ -55,19 +23,26 @@ abstract class FlightDate {
     }
   }
 
+  //-------------------------- return date ---------------------------
   static Future<void> selectReturnDate(
       BuildContext context, DateTime? startDate) async {
     final state = context.read<FlightDateBloc>().state;
     final DateTime? pickedStartDate = startDate ?? state.dateTimeStart;
 
+    DateTime? initialDate = state.dateTimeReturn ?? pickedStartDate;
+    initialDate =
+        initialDate!.isBefore(pickedStartDate!) ? pickedStartDate : initialDate;
+
     final DateTime? pickedReturnDate = await showDatePicker(
       context: context,
-      initialDate: state.dateTimeReturn ?? pickedStartDate ?? DateTime.now(),
-      firstDate: pickedStartDate ?? DateTime.now(),
+      initialDate: initialDate,
+      firstDate: pickedStartDate,
       lastDate: DateTime.now().add(const Duration(days: 365)),
     );
 
-    if (pickedReturnDate != null) {
+    if (pickedReturnDate != null &&
+        pickedReturnDate.isBefore(pickedStartDate)) {
+    } else if (pickedReturnDate != null) {
       // ignore: use_build_context_synchronously
       BlocProvider.of<FlightDateBloc>(context)
           .add(FlightDateReturn(dateTimeReturn: pickedReturnDate));
