@@ -1,4 +1,5 @@
 import 'package:flights/core/color/app_color.dart';
+import 'package:flights/core/functions/model_bottom_sheet.dart';
 import 'package:flights/core/utils/app_fonts.dart';
 import 'package:flights/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,9 @@ class TitleWithButton extends StatelessWidget {
         ),
         CustomButton(
           title: "Book a flight",
-          onPressed: () {},
+          onPressed: () {
+            OpenBottomSheet.newBooking(context);
+          },
         )
       ],
     );

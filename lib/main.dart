@@ -1,6 +1,7 @@
 import 'package:flights/core/functions/theme_data.dart';
 import 'package:flights/core/utils/app_router.dart';
-import 'package:flights/features/book_flights/presentation/bloc/bloc/bottom_nav_bar_bloc.dart';
+
+import 'package:flights/features/book_flights/presentation/bloc/nav_bar_bloc/bottom_nav_bar_bloc.dart';
 import 'package:flights/features/splash/presentation/view/spalsh_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,8 +21,15 @@ class FlightsApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return BlocProvider(
-          create: (context) => BottomNavBarBloc(),
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => BottomNavBarBloc(),
+            ),
+            // BlocProvider(
+            //   create: (context) => FlightDateBloc(),
+            // ),
+          ],
           child: MaterialApp(
             theme: AppTheme.themeData(),
             debugShowCheckedModeBanner: false,

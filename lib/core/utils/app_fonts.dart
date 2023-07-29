@@ -35,4 +35,7 @@ abstract class AppFonts {
   static TextStyle font12() => TextStyle(
         fontSize: 12.sp,
       );
+  static TextStyle font10() => TextStyle(
+        fontSize: 10.sp,
+      );
 }

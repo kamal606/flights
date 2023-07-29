@@ -7,4 +7,6 @@ abstract class AppIcons {
   static IconData akeedCare = FontAwesomeIcons.commentDots;
   static IconData more = FontAwesomeIcons.ellipsis;
   static IconData plane = FontAwesomeIcons.planeUp;
+  static IconData arrow = FontAwesomeIcons.arrowLeftLong;
+  static IconData calendar = FontAwesomeIcons.calendar;
 }

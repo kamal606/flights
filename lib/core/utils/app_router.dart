@@ -18,6 +18,7 @@ abstract class AppRouter {
 
       case RouteName.profileView:
         return ProfileView.route();
+
       default:
         return _errorRoute();
     }

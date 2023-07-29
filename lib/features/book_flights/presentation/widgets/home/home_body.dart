@@ -1,3 +1,4 @@
+import 'package:flights/core/functions/model_bottom_sheet.dart';
 import 'package:flights/features/book_flights/presentation/widgets/home/background.dart';
 import 'package:flights/features/book_flights/presentation/widgets/home/title_with_button.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,8 @@ class HomeViewBody extends StatelessWidget {
       children: [
         BackgroundHome(),
         TitleWithButton(),
+        MyFlightBookingScreen(),
+        // MyFlightBookingScreen(),
       ],
     );
   }
