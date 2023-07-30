@@ -22,22 +22,22 @@ abstract class OpenBottomSheet {
 
             String startmonth = state.dateTimeStart != null
                 ? month.format(state.dateTimeStart!)
-                : '';
+                : 'Select Date';
             String returnmonth = state.dateTimeReturn != null
                 ? month.format(state.dateTimeReturn!)
-                : '';
+                : 'Select Date';
             String startdayNumber = state.dateTimeStart != null
                 ? dayNumber.format(state.dateTimeStart!)
-                : '';
+                : '+';
             String returndayNumber = state.dateTimeReturn != null
                 ? dayNumber.format(state.dateTimeReturn!)
-                : '';
+                : '+';
             String startDayText = state.dateTimeStart != null
                 ? dayText.format(state.dateTimeStart!)
-                : '';
+                : '-------------------';
             String returnDayText = state.dateTimeReturn != null
                 ? dayText.format(state.dateTimeReturn!)
-                : '';
+                : '-------------------';
 
             final deviceHeight = MediaQuery.of(context).size.height;
 
