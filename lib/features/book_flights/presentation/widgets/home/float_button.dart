@@ -1,5 +1,5 @@
 import 'package:flights/core/color/app_color.dart';
-import 'package:flights/core/functions/model_bottom_sheet.dart';
+import 'package:flights/features/book_flights/presentation/view/modal_bottom_sheet.dart';
 import 'package:flights/core/utils/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

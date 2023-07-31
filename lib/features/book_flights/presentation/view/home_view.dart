@@ -1,6 +1,6 @@
 import 'package:flights/core/color/app_color.dart';
 import 'package:flights/core/functions/material_route.dart';
-import 'package:flights/core/functions/model_bottom_sheet.dart';
+import 'package:flights/features/book_flights/presentation/view/modal_bottom_sheet.dart';
 import 'package:flights/core/utils/route_name.dart';
 import 'package:flights/core/widgets/custom_appbar.dart';
 import 'package:flights/features/book_flights/presentation/bloc/nav_bar_bloc/bottom_nav_bar_bloc.dart';

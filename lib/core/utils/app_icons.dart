@@ -9,4 +9,11 @@ abstract class AppIcons {
   static IconData plane = FontAwesomeIcons.planeUp;
   static IconData arrow = FontAwesomeIcons.arrowLeftLong;
   static IconData calendar = FontAwesomeIcons.calendar;
+  static IconData warning = FontAwesomeIcons.triangleExclamation;
+  static IconData planeDeparture = FontAwesomeIcons.planeDeparture;
+  static IconData planeArrival = FontAwesomeIcons.planeArrival;
+  static IconData locationArrow = FontAwesomeIcons.locationArrow;
+  static IconData arrowRightArrowLeft = FontAwesomeIcons.arrowRightArrowLeft;
+  static IconData xmark = FontAwesomeIcons.xmark;
+  static IconData locationDot = FontAwesomeIcons.locationDot;
 }
