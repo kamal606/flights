@@ -16,4 +16,6 @@ abstract class AppIcons {
   static IconData arrowRightArrowLeft = FontAwesomeIcons.arrowRightArrowLeft;
   static IconData xmark = FontAwesomeIcons.xmark;
   static IconData locationDot = FontAwesomeIcons.locationDot;
+  static IconData search = FontAwesomeIcons.magnifyingGlass;
+  static IconData locationCrosshairs = FontAwesomeIcons.locationCrosshairs;
 }
